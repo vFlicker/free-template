@@ -1,0 +1,57 @@
+.scanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: 640px;
+  padding: 4px 4px 4px 24px;
+
+  border-radius: 60px;
+  box-shadow: 0px 2px 20px 0px rgba(132, 152, 144, 0.12);
+
+  background-color: #ffffff;
+}
+
+.label {
+  width: 100%;
+  max-width: 366px;
+}
+
+.input {
+  width: 100%;
+  border: none;
+
+  text-overflow: ellipsis;
+  font-size: 12px;
+
+  outline: 0;
+}
+
+.scanner.success .input {
+  color: #4DB45E;
+}
+
+.input::placeholder {
+  color: #D3D3D3;
+}
+
+.button {
+  padding: 18px 23px 18px 43px;
+  border-radius: 60px;
+
+  color: #FFF;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+
+  background-color: #222222;
+  background-image: url(../../shared/images/eye-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 22px center;
+}
+
+.scanner.success .button {
+  background-color: #4DB45E;
+  background-image: url(../../shared/images/check-icon.svg);
+}
+

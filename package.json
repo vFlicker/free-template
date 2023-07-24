@@ -1,0 +1,45 @@
+{
+  "name": "free-template",
+  "version": "1.0.0",
+  "author": "Vladyslav Sliusar",
+  "license": "ISC",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --fix",
+    "deploy": "bash deploy.sh",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "classnames": "2.3.2",
+    "react": "18.2.0",
+    "react-datepicker": "4.15.0",
+    "react-dom": "18.2.0",
+    "react-transition-group": "4.4.5"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.14",
+    "@types/react-datepicker": "4.11.2",
+    "@types/react-dom": "18.2.6",
+    "@types/react-transition-group": "4.4.6",
+    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/parser": "5.61.0",
+    "@vitejs/plugin-react": "4.0.1",
+    "eslint": "8.44.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "prettier": "2.8.8",
+    "typescript": "5.1.6",
+    "vite": "4.3.9",
+    "vite-plugin-checker": "0.6.1",
+    "vite-plugin-eslint": "1.8.1",
+    "vite-tsconfig-paths": "4.2.0"
+  }
+}

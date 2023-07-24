@@ -1,0 +1,29 @@
+.h1 {
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  max-width: 300px;
+  margin-bottom: 45px;
+
+  color: #616161;
+  text-align: center;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.48px;
+}
+
+.code {
+  padding: 24px;
+  border-radius: 24px;
+  background-color: #ffffff;
+
+  box-shadow: 0px 2px 20px 0px rgba(132, 152, 144, 0.12);
+}
+
+.code pre {
+  color: #878787;
+  font-family: Factor A;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+}

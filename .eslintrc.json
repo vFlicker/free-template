@@ -1,0 +1,43 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "function-declaration",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  }
+}

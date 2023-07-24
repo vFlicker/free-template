@@ -1,0 +1,14 @@
+html {
+  font-family: var(--main-font);
+}
+
+body {
+  font-size: 16px;
+  line-height: normal;
+}
+
+input,
+textarea,
+button {
+  font-family: var(--main-font);
+}

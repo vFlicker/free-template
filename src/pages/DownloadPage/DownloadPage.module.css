@@ -1,0 +1,43 @@
+.h1 {
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  max-width: 320px;
+  margin: 0 0 58px;
+
+  color: #616161;
+  text-align: center;
+  font-family: Factor A;
+  font-size: 16px;
+  letter-spacing: 0.32px;
+}
+
+.image {
+  width: 181px;
+  height: 205px;
+  margin-bottom: 28px;
+
+  background-image: url(../../shared/images/zip-file.png);
+}
+
+.button {
+  width: 166px;
+  height: 56px;
+  padding: 10px 10px 10px 34px;
+  border-radius: 60px;
+
+  background-color: #222222;
+  background-image: url(../../shared/images/download-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 47px center;
+
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+}
+
+.button.downloaded {
+  background-color: #277156;
+  background-image: url(../../shared/images/check-icon.svg);
+}

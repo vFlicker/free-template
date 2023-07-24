@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Factor A';
+  src: url('../../shared/fonts/FactorA-Regular.woff2') format('woff2'),
+    url('../../shared/fonts/FactorA-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Factor A';
+  src: url('../../shared/fonts/FactorA-Medium.woff2') format('woff2'),
+    url('../../shared/fonts/FactorA-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Factor A';
+  src: url('../../shared/fonts/FactorA-Bold.woff2') format('woff2'),
+    url('../../shared/fonts/FactorA-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
