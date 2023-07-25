@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 
-import { ScreenExample } from '../ScreenExample';
+import { ScreenExample } from '../Screen';
 import { screens } from './config';
 
 export function Slider(): JSX.Element {
