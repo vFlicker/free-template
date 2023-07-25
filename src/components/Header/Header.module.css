@@ -1,6 +1,14 @@
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-top: 80px;
   margin-bottom: 24px;
+}
+
+.logo {
+  width: 149px;
+  height: 24px;
+  margin-bottom: 16px;
 }

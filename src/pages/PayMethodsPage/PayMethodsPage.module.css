@@ -19,16 +19,3 @@
 .scanner {
   margin-bottom: 40px;
 }
-
-.notification {
-  max-width: 272px;
-  padding-top: 56px;
-
-  color: #7E7E7E;
-  font-size: 12px;
-  text-align: center;
-
-  background-image: url(../../shared/images/big-eye-icon.svg);
-  background-repeat: no-repeat;
-  background-position: center top;
-}

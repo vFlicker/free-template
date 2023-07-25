@@ -1,31 +1,27 @@
 import './styles/index.css';
 
-import { useState } from 'react';
-
+import { Footer } from '~/components/Footer/Footer';
 import { Header } from '~/components/Header';
-import { Modal } from '~/components/Modal';
 import { ConstructorPage } from '~/pages/ConstructorPage';
 import { DownloadPage } from '~/pages/DownloadPage';
 import { PayMethodsPage } from '~/pages/PayMethodsPage';
 import { SettingsPage } from '~/pages/SettingsPage';
+import { TemplateChooserPage } from '~/pages/TemplateChooserPage';
 import { VariablesPage } from '~/pages/VariablesPage';
-
-import classes from './App.module.css';
 
 export function App(): JSX.Element {
   return (
     <>
-      <div className={classes.container}>
-        <Header />
+      <Header />
 
-        <main className={classes.main}>
-          {/* <ConstructorPage /> */}
-          {/* <SettingsPage /> */}
-          <PayMethodsPage />
-          {/* <VariablesPage /> */}
-          {/* <DownloadPage /> */}
-        </main>
-      </div>
+      {/* <ConstructorPage /> */}
+      {/* <SettingsPage /> */}
+      {/* <PayMethodsPage /> */}
+      {/* <VariablesPage /> */}
+      {/* <DownloadPage /> */}
+      <TemplateChooserPage />
+
+      <Footer />
     </>
   );
 }

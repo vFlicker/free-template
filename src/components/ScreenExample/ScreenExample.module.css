@@ -1,0 +1,36 @@
+.screen {
+  display: flex;
+  gap: 62px;
+
+  width: 100%;
+  max-width: 952px;
+  height: 462px;
+  margin: auto;
+  padding: 38px;
+  border-radius: 24px;
+
+  background-color: #ffffff;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image {
+  width: 378px;
+  height: 379px;
+}
+
+.button {
+  margin-left: auto;
+  padding: 21px 57px 21px 57px;
+  border-radius: 60px;
+
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+
+  background-color: #222222;
+}

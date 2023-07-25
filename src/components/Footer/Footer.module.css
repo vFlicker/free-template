@@ -1,0 +1,19 @@
+.footer {
+  margin: 0 auto;
+
+  max-width: 272px;
+  padding: 56px 0 54px;
+
+  color: #7E7E7E;
+  font-size: 12px;
+  text-align: center;
+
+  background-image: url(../../shared/images/big-eye-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.link {
+  color: #12D28D;
+  text-decoration: underline;
+}
