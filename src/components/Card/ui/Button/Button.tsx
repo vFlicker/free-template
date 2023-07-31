@@ -2,22 +2,18 @@ import cn from 'classnames';
 import { ComponentPropsWithoutRef } from 'react';
 
 import { useAppSelector } from '~/shared/hooks';
-import { FormData } from '~/shared/types';
 import { formDataSlice } from '~/store/formData';
 
 import classes from './Button.module.css';
 
-type ButtonProps = ComponentPropsWithoutRef<'button'> & {
-  config: FormData;
-};
+type ButtonProps = ComponentPropsWithoutRef<'button'>;
 
 export function Button({
-  config,
   className,
   children,
   ...props
 }: ButtonProps): JSX.Element | null {
-  const { cardType } = config;
+  const cardType = useAppSelector(formDataSlice.selectCardType);
   const hasIcon = useAppSelector(formDataSlice.selectHasIcon);
   const hasText = useAppSelector(formDataSlice.selectHasText);
   const hasBackground = useAppSelector(formDataSlice.selectHasBackground);

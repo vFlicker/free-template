@@ -13,8 +13,8 @@ export function App(): JSX.Element {
     <Provider store={store}>
       <Header />
 
+      <TemplateChooserPage />
       <ConstructorPage />
-      {/* <TemplateChooserPage /> */}
 
       <Footer />
     </Provider>

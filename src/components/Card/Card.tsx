@@ -1,21 +1,17 @@
 import cn from 'classnames';
 
 import { useAppSelector } from '~/shared/hooks';
-import { FormData } from '~/shared/types';
 import { formDataSlice } from '~/store/formData';
 
 import classes from './Card.module.css';
 import { Button, Description, Image, Title } from './ui';
 
-type CardProps = {
-  config: FormData;
-};
-
-export function Card({ config }: CardProps): JSX.Element {
+export function Card(): JSX.Element {
   const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
+  const cardType = useAppSelector(formDataSlice.selectCardType);
 
-  const cardTypeClass = classes[config.cardType];
-  const isNarrowType = config.cardType === 'narrow';
+  const cardTypeClass = classes[cardType];
+  const isNarrowType = cardType === 'narrow';
 
   const classNames = cn(classes.card, cardTypeClass, {
     [classes.background]: !isNarrowType && hasBackground,
@@ -23,16 +19,16 @@ export function Card({ config }: CardProps): JSX.Element {
 
   return (
     <div className={classNames}>
-      <Image config={config} />
+      <Image />
 
       <div className={classes.wrapper}>
-        <Title config={config}>Заголовок модуля в пару строк</Title>
+        <Title>Заголовок модуля в пару строк</Title>
 
-        <Description config={config}>
+        <Description>
           Corem ipsum dolor sit amet, consectetur adipiscing elit.
         </Description>
 
-        <Button config={config}>Перейти</Button>
+        <Button>Перейти</Button>
       </div>
     </div>
   );

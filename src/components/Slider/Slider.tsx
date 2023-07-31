@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 
-import { ScreenExample } from '../Screen';
+import { ScreenExample } from '../ScreenExample';
 import { screens } from './config';
 
 export function Slider(): JSX.Element {
@@ -46,7 +46,7 @@ export function Slider(): JSX.Element {
         onSwiper={(swiper) => setSwiperRef(swiper)}
       >
         {screens.map((item) => (
-          <SwiperSlide key={item.id}>
+          <SwiperSlide key={item.type}>
             <ScreenExample {...item} />
           </SwiperSlide>
         ))}

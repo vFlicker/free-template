@@ -3,17 +3,14 @@ import { ComponentPropsWithoutRef } from 'react';
 
 import { useAppSelector } from '~/shared/hooks';
 import imageExampleSrc from '~/shared/images/card-picture.jpg';
-import { FormData } from '~/shared/types';
 import { formDataSlice } from '~/store/formData';
 
 import classes from './Image.module.css';
 
-type ImageProps = ComponentPropsWithoutRef<'img'> & {
-  config: FormData;
-};
+type ImageProps = ComponentPropsWithoutRef<'img'>;
 
-export function Image({ config, className }: ImageProps): JSX.Element | null {
-  const { cardType } = config;
+export function Image({ className }: ImageProps): JSX.Element | null {
+  const cardType = useAppSelector(formDataSlice.selectCardType);
   const hasImage = useAppSelector(formDataSlice.selectHasImage);
   const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
 

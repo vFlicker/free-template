@@ -5,23 +5,23 @@ import cardWideSrc from '~/shared/images/cards/cards_wide.jpg';
 
 export const screens = [
   {
-    id: 1,
+    type: 'rectangular',
     title: 'Прямоугольные вертикальные карточки',
     imageSrc: cardRectangularSrc,
   },
   {
-    id: 2,
+    type: 'square',
     title: 'Квадратные карточки',
     imageSrc: cardSquareSrc,
   },
   {
-    id: 3,
+    type: 'narrow',
     title: 'Узкие горизонтальные карточки',
     imageSrc: cardNarrowSrc,
   },
   {
-    id: 4,
+    type: 'wide',
     title: 'Широкие горизонтальные карточки',
     imageSrc: cardWideSrc,
   },
-];
+] as const;

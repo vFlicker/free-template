@@ -56,6 +56,10 @@ export const {
   changeHasIcon,
 } = formDataSlice.actions;
 
+export const selectCardType = (state: State): CardType => {
+  return state.FORM_DATA.cardType;
+};
+
 export const selectHasBackground = (state: State): boolean => {
   return state.FORM_DATA.image.hasBackground;
 };

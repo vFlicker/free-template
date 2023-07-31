@@ -2,22 +2,18 @@ import cn from 'classnames';
 import { ComponentPropsWithoutRef } from 'react';
 
 import { useAppSelector } from '~/shared/hooks';
-import { FormData } from '~/shared/types';
 import { formDataSlice } from '~/store/formData';
 
 import classes from './Description.module.css';
 
-type DescriptionProps = ComponentPropsWithoutRef<'p'> & {
-  config: FormData;
-};
+type DescriptionProps = ComponentPropsWithoutRef<'p'>;
 
 export function Description({
-  config,
   className,
   children,
   ...props
 }: DescriptionProps): JSX.Element | null {
-  const { cardType } = config;
+  const cardType = useAppSelector(formDataSlice.selectCardType);
   const hasDescription = useAppSelector(formDataSlice.selectHasDescription);
   const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
 

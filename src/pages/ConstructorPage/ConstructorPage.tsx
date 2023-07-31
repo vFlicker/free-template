@@ -2,14 +2,16 @@ import cn from 'classnames';
 
 import { Card } from '~/components/Card';
 import { ControlPanel } from '~/components/ControlPanel';
+import { useAppSelector } from '~/shared/hooks';
+import { formDataSlice } from '~/store/formData';
 
-import { config } from './config';
 import classes from './ConstructorPage.module.css';
 
 const title = 'Прямоугольные вертикальные карточки';
 
 export function ConstructorPage(): JSX.Element {
-  const cardTypeClass = classes[config.cardType];
+  const cardType = useAppSelector(formDataSlice.selectCardType);
+  const cardTypeClass = classes[cardType];
   const listClasses = cn(classes.list, cardTypeClass);
 
   return (
@@ -19,22 +21,22 @@ export function ConstructorPage(): JSX.Element {
       <div className={classes.wrapper}>
         <ul className={listClasses}>
           <li className={classes.item}>
-            <Card config={config} />
+            <Card />
           </li>
           <li className={classes.item}>
-            <Card config={config} />
+            <Card />
           </li>
           <li className={classes.item}>
-            <Card config={config} />
+            <Card />
           </li>
           <li className={classes.item}>
-            <Card config={config} />
+            <Card />
           </li>
           <li className={classes.item}>
-            <Card config={config} />
+            <Card />
           </li>
           <li className={classes.item}>
-            <Card config={config} />
+            <Card />
           </li>
         </ul>
 

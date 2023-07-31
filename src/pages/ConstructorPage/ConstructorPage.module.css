@@ -22,6 +22,10 @@
 }
 
 .list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
   list-style: none;
   margin: 0;
   padding: 0;
@@ -35,11 +39,4 @@
   background-color: #6D6D6D;
 
   overflow: hidden;
-}
-
-.list.rectangular,
-.list.square {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
 }
