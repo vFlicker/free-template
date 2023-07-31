@@ -1,0 +1,102 @@
+.card {
+  position: relative;
+
+  display: flex;
+  padding: 24px;
+  border-radius: 24px;
+
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.card.background {
+  background-image: url(../../shared/images/card-picture.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.card.background::after {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.568);
+}
+
+.card.background .title,
+.card.background .description {
+  color: #ffffff;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+
+  color: #000000;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Rectangular */
+.card.rectangular {
+  width: 268px;
+  height: 372px;
+  flex-direction: column;
+}
+
+.card.rectangular.background {
+  height: 310px;
+}
+
+.card.rectangular.background .button{
+  margin-top: auto;
+}
+
+
+/* Rectangular */
+.card.rectangular .wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+/* Narrow */
+.card.narrow .wrapper {
+  display: flex;
+  align-items: center;
+}
+
+
+/* Wide */
+.card.wide {
+  padding: 0;
+  border-radius: 0;
+}
+
+.card.wide .wrapper {
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+}
+
+
+/* Square */
+.card.square {
+  width: 268px;
+  height: 268px;
+}
+
+.card.square .wrapper {
+  display: flex;
+  flex-direction: column;
+}

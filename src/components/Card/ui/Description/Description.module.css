@@ -1,0 +1,31 @@
+.description {
+  position: relative;
+
+  margin: 0;
+
+  color: #777777;
+  font-size: 16px;
+
+  z-index: 1;
+}
+
+.description.background {
+  color: #DEDEDE;
+}
+
+.description.rectangular {
+  margin-top: 8px;
+}
+
+.description.square {
+  margin-top: 8px;
+}
+
+.description.narrow {
+  margin: 0 50px;
+}
+
+.description.wide {
+  width: 220px;
+  margin-top: 16px;
+}

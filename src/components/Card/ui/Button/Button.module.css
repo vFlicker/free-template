@@ -1,0 +1,65 @@
+.button {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 48px;
+  padding: 14px 0;
+  border-radius: 8px;
+
+  color: #ffffff;
+  font-size: 16px;
+
+  background-color: #8388FF;
+}
+
+.button:hover {
+  background-color: #6166ED;
+}
+
+.button.icon::after {
+  content: '';
+
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  background-image: url(../../../../shared/images/next.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.button.large {
+  width: 220px;
+  height: 48px;
+}
+
+.button.rectangular {
+  margin-top: auto;
+}
+
+.button.square {
+  margin-top: auto
+}
+
+.button.narrow.large {
+  height: 68px;
+}
+
+.button.wide {
+  margin-top: auto;
+}
+
+.button.square.large {
+  order: 0;
+  margin-top: auto;
+}
+
+.button.square {
+  order: -1;
+  margin: 0 0 0 auto;
+}
