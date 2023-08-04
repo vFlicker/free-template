@@ -1,3 +1,6 @@
+import { useNavigate } from 'react-router-dom';
+
+import { AppRoute } from '~/shared/constants';
 import { useAppDispatch } from '~/shared/hooks';
 import { CardType } from '~/shared/types';
 import { formDataSlice } from '~/store/formData';
@@ -16,6 +19,12 @@ export function ScreenExample({
   title,
 }: ScreenExampleProps): JSX.Element {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    dispatch(formDataSlice.changeCartType(type));
+    navigate(AppRoute.CONSTRUCTOR);
+  };
 
   return (
     <div className={classes.screen}>
@@ -23,10 +32,7 @@ export function ScreenExample({
 
       <div className={classes.wrapper}>
         <h2>{title}</h2>
-        <button
-          className={classes.button}
-          onClick={() => dispatch(formDataSlice.changeCartType(type))}
-        >
+        <button className={classes.button} onClick={handleClick}>
           Выбрать
         </button>
       </div>
