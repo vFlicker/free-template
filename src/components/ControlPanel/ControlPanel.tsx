@@ -1,13 +1,31 @@
 import cn from 'classnames';
 import { ChangeEvent } from 'react';
+import { toast, ToastOptions } from 'react-toastify';
 
 import { createJsFileText, cssFile } from '~/domain';
 import { useAppDispatch, useAppSelector } from '~/shared/hooks';
+import heartIconSrc from '~/shared/images/check-heart.svg';
 import { CardProperty } from '~/shared/types';
 import { formDataSlice } from '~/store/formData';
 
 import { Checkbox } from '../Checkbox';
 import classes from './ControlPanel.module.css';
+
+const toastSuccessOptions: ToastOptions = {
+  position: toast.POSITION.BOTTOM_RIGHT,
+  className: 'toast-message',
+  autoClose: 5000,
+  closeButton: false,
+  hideProgressBar: true,
+  icon: () => <img src={heartIconSrc} alt="" />,
+};
+
+const toastErrorOptions: ToastOptions = {
+  position: toast.POSITION.BOTTOM_RIGHT,
+  className: 'toast-message',
+  autoClose: 5000,
+  hideProgressBar: true,
+};
 
 export function ControlPanel(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -34,9 +52,9 @@ export function ControlPanel(): JSX.Element {
 
     try {
       await navigator.clipboard.writeText(cssFileText);
-      alert('Текст успішно скопійовано!');
+      toast.success('Скопировано в буфер обмена', toastSuccessOptions);
     } catch (error) {
-      alert('Error');
+      toast.error('Ошибка', toastErrorOptions);
     }
   };
 
@@ -45,9 +63,9 @@ export function ControlPanel(): JSX.Element {
 
     try {
       await navigator.clipboard.writeText(jsFileText);
-      alert('Текст успішно скопійовано!');
+      toast.success('Скопировано в буфер обмена', toastSuccessOptions);
     } catch (error) {
-      alert('Error');
+      toast.error('Ошибка', toastErrorOptions);
     }
   };
 
@@ -93,36 +111,38 @@ export function ControlPanel(): JSX.Element {
         </Checkbox>
       </div>
 
-      <h3 className={classes.title}>Вид кнопки</h3>
+      <div className={classes.bottom}>
+        <h3 className={cn(classes.title)}>Вид кнопки</h3>
 
-      <div className={classes.additionalWrapper}>
-        <Checkbox
-          value="hasText"
-          checked={hasText}
-          onChange={handlePropertyChange}
-        >
-          Текст
-        </Checkbox>
+        <div className={classes.additionalWrapper}>
+          <Checkbox
+            value="hasText"
+            checked={hasText}
+            onChange={handlePropertyChange}
+          >
+            Текст
+          </Checkbox>
 
-        <Checkbox
-          value="hasIcon"
-          checked={hasIcon}
-          onChange={handlePropertyChange}
-        >
-          Иконка
-        </Checkbox>
-      </div>
-
-      <div className={classes.buttonsWrapper}>
-        <div className={cn(classes.buttonWrapper, classes.css)}>
-          <button className={classes.button} onClick={handleCssTextCopyClick}>
-            Копировать
-          </button>
+          <Checkbox
+            value="hasIcon"
+            checked={hasIcon}
+            onChange={handlePropertyChange}
+          >
+            Иконка
+          </Checkbox>
         </div>
-        <div className={cn(classes.buttonWrapper, classes.js)}>
-          <button className={classes.button} onClick={handleJsTextCopyClick}>
-            Копировать
-          </button>
+
+        <div className={classes.buttonsWrapper}>
+          <div className={cn(classes.buttonWrapper, classes.css)}>
+            <button className={classes.button} onClick={handleCssTextCopyClick}>
+              Копировать
+            </button>
+          </div>
+          <div className={cn(classes.buttonWrapper, classes.js)}>
+            <button className={classes.button} onClick={handleJsTextCopyClick}>
+              Копировать
+            </button>
+          </div>
         </div>
       </div>
     </div>

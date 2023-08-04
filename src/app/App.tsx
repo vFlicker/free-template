@@ -1,7 +1,9 @@
 import './styles/index.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { Footer } from '~/components/Footer/Footer';
 import { Header } from '~/components/Header';
@@ -13,6 +15,8 @@ import { store } from '~/store';
 export function App(): JSX.Element {
   return (
     <Provider store={store}>
+      <ToastContainer />
+
       <BrowserRouter>
         <Header />
 

@@ -1,4 +1,6 @@
 .controlPanel {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   padding: 24px 32px 24px 24px;
   border-radius: 16px;
@@ -16,6 +18,10 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 24px;
+}
+
+.bottom {
+  margin-top: auto;
 }
 
 .additionalWrapper {
