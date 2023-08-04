@@ -22,7 +22,7 @@ export function ScreenExample({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    dispatch(formDataSlice.changeCartType(type));
+    dispatch(formDataSlice.changeCardType(type));
     navigate(AppRoute.CONSTRUCTOR);
   };
 

@@ -1,7 +1,9 @@
 import cn from 'classnames';
+import { ChangeEvent } from 'react';
 
 import { createJsFileText, cssFile } from '~/domain';
 import { useAppDispatch, useAppSelector } from '~/shared/hooks';
+import { CardProperty } from '~/shared/types';
 import { formDataSlice } from '~/store/formData';
 
 import { Checkbox } from '../Checkbox';
@@ -17,6 +19,11 @@ export function ControlPanel(): JSX.Element {
   const hasText = useAppSelector(formDataSlice.selectHasText);
   const hasIcon = useAppSelector(formDataSlice.selectHasIcon);
   const formData = useAppSelector((state) => state.FORM_DATA);
+
+  const handlePropertyChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    const cardProperty = evt.target.value as CardProperty;
+    dispatch(formDataSlice.changeCardProperty(cardProperty));
+  };
 
   const handleCssTextCopyClick = async () => {
     const type: 'rectangular' | 'narrow' | 'square' | 'wide' = 'wide';
@@ -47,33 +54,33 @@ export function ControlPanel(): JSX.Element {
 
       <div className={classes.baseWrapper}>
         <Checkbox
-          value="background"
+          value="hasBackground"
           checked={hasBackground}
-          onChange={() => dispatch(formDataSlice.changeHasBackground())}
+          onChange={handlePropertyChange}
         >
           Фоновое изображение
         </Checkbox>
 
         <Checkbox
-          value="image"
+          value="hasImage"
           checked={hasImage}
-          onChange={() => dispatch(formDataSlice.changeHasImage())}
+          onChange={handlePropertyChange}
         >
           Изображение в карточке
         </Checkbox>
 
         <Checkbox
-          value="description"
+          value="hasDescription"
           checked={hasDescription}
-          onChange={() => dispatch(formDataSlice.changeHasDescription())}
+          onChange={handlePropertyChange}
         >
           Описание
         </Checkbox>
 
         <Checkbox
-          value="showButton"
+          value="hasButton"
           checked={hasButton}
-          onChange={() => dispatch(formDataSlice.changeHasButton())}
+          onChange={handlePropertyChange}
         >
           Кнопка
         </Checkbox>
@@ -83,17 +90,17 @@ export function ControlPanel(): JSX.Element {
 
       <div className={classes.additionalWrapper}>
         <Checkbox
-          value="text"
+          value="hasText"
           checked={hasText}
-          onChange={() => dispatch(formDataSlice.changeHasText())}
+          onChange={handlePropertyChange}
         >
           Текст
         </Checkbox>
 
         <Checkbox
-          value="text"
+          value="hasIcon"
           checked={hasIcon}
-          onChange={() => dispatch(formDataSlice.changeHasIcon())}
+          onChange={handlePropertyChange}
         >
           Иконка
         </Checkbox>
