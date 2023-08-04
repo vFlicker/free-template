@@ -1,4 +1,4 @@
 export const AppRoute = {
-  ROOT: '/free-template',
-  CONSTRUCTOR: '/free-template/constructor',
+  ROOT: '/free-template/',
+  CONSTRUCTOR: '/free-template/constructor/',
 };

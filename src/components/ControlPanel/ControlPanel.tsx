@@ -12,6 +12,7 @@ import classes from './ControlPanel.module.css';
 export function ControlPanel(): JSX.Element {
   const dispatch = useAppDispatch();
 
+  const cartType = useAppSelector(formDataSlice.selectCardType);
   const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
   const hasImage = useAppSelector(formDataSlice.selectHasImage);
   const hasDescription = useAppSelector(formDataSlice.selectHasDescription);
@@ -53,21 +54,25 @@ export function ControlPanel(): JSX.Element {
       <h3 className={classes.title}>Настройки карточки</h3>
 
       <div className={classes.baseWrapper}>
-        <Checkbox
-          value="hasBackground"
-          checked={hasBackground}
-          onChange={handlePropertyChange}
-        >
-          Фоновое изображение
-        </Checkbox>
+        {cartType !== 'narrow' && (
+          <Checkbox
+            value="hasBackground"
+            checked={hasBackground}
+            onChange={handlePropertyChange}
+          >
+            Фоновое изображение
+          </Checkbox>
+        )}
 
-        <Checkbox
-          value="hasImage"
-          checked={hasImage}
-          onChange={handlePropertyChange}
-        >
-          Изображение в карточке
-        </Checkbox>
+        {cartType !== 'square' && (
+          <Checkbox
+            value="hasImage"
+            checked={hasImage}
+            onChange={handlePropertyChange}
+          >
+            Изображение в карточке
+          </Checkbox>
+        )}
 
         <Checkbox
           value="hasDescription"

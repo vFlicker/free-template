@@ -18,7 +18,7 @@ export function Card(): JSX.Element {
   });
 
   return (
-    <div className={classNames}>
+    <article className={classNames}>
       <Image />
 
       <div className={classes.wrapper}>
@@ -30,6 +30,6 @@ export function Card(): JSX.Element {
 
         <Button>Перейти</Button>
       </div>
-    </div>
+    </article>
   );
 }

@@ -39,11 +39,19 @@
 }
 
 .button.rectangular {
+  margin-top: 16px;
+}
+
+.button.background.rectangular {
   margin-top: auto;
 }
 
 .button.square {
   margin-top: auto
+}
+
+.button.narrow {
+  flex-shrink: 0;
 }
 
 .button.narrow.large {

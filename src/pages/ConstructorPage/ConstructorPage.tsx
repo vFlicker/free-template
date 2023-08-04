@@ -13,7 +13,7 @@ import classes from './ConstructorPage.module.css';
 export function ConstructorPage(): JSX.Element {
   const cardType = useAppSelector(formDataSlice.selectCardType);
   const cardTypeClass = classes[cardType];
-  const listClasses = cn(classes.list, cardTypeClass);
+  const cardListClasses = cn(classes.list, cardTypeClass);
 
   return (
     <main className={cn(classes.main, 'container')}>
@@ -22,26 +22,14 @@ export function ConstructorPage(): JSX.Element {
       </Link>
 
       <div className={classes.wrapper}>
-        <ul className={listClasses}>
-          <li className={classes.item}>
-            <Card />
-          </li>
-          <li className={classes.item}>
-            <Card />
-          </li>
-          <li className={classes.item}>
-            <Card />
-          </li>
-          <li className={classes.item}>
-            <Card />
-          </li>
-          <li className={classes.item}>
-            <Card />
-          </li>
-          <li className={classes.item}>
-            <Card />
-          </li>
-        </ul>
+        <div className={cardListClasses}>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
 
         <ControlPanel />
       </div>

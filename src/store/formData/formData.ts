@@ -18,9 +18,33 @@ const formDataSlice = createSlice({
   reducers: {
     changeCardType: (state, { payload }: PayloadAction<CardType>) => {
       state.cardType = payload;
+
+      if (state.hasBackground === true || state.cardType === 'square') {
+        state.hasImage = false;
+      }
+
+      if (state.cardType === 'narrow') {
+        state.hasBackground = false;
+      }
+
+      if (state.hasText === false) {
+        state.hasIcon = true;
+      }
     },
     changeCardProperty: (state, { payload }: PayloadAction<CardProperty>) => {
       state[payload] = !state[payload];
+
+      if (state.hasBackground === true || state.cardType === 'square') {
+        state.hasImage = false;
+      }
+
+      if (state.cardType === 'narrow') {
+        state.hasBackground = false;
+      }
+
+      if (state.hasText === false) {
+        state.hasIcon = true;
+      }
     },
   },
 });
