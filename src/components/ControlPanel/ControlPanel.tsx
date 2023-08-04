@@ -1,3 +1,5 @@
+import cn from 'classnames';
+
 import { createJsFileText, cssFile } from '~/domain';
 import { useAppDispatch, useAppSelector } from '~/shared/hooks';
 import { formDataSlice } from '~/store/formData';
@@ -40,8 +42,8 @@ export function ControlPanel(): JSX.Element {
   };
 
   return (
-    <div>
-      <h3>Настройки карточки</h3>
+    <div className={classes.controlPanel}>
+      <h3 className={classes.title}>Настройки карточки</h3>
 
       <div className={classes.baseWrapper}>
         <Checkbox
@@ -69,7 +71,7 @@ export function ControlPanel(): JSX.Element {
         </Checkbox>
 
         <Checkbox
-          value="button"
+          value="showButton"
           checked={hasButton}
           onChange={() => dispatch(formDataSlice.changeHasButton())}
         >
@@ -77,7 +79,7 @@ export function ControlPanel(): JSX.Element {
         </Checkbox>
       </div>
 
-      <h3>Настройки карточки</h3>
+      <h3 className={classes.title}>Вид кнопки</h3>
 
       <div className={classes.additionalWrapper}>
         <Checkbox
@@ -85,7 +87,7 @@ export function ControlPanel(): JSX.Element {
           checked={hasText}
           onChange={() => dispatch(formDataSlice.changeHasText())}
         >
-          Text
+          Текст
         </Checkbox>
 
         <Checkbox
@@ -97,9 +99,17 @@ export function ControlPanel(): JSX.Element {
         </Checkbox>
       </div>
 
-      <div className={classes.buttonWrapper}>
-        <button onClick={handleCssTextCopyClick}>Копировать CSS</button>
-        <button onClick={handleJsTextCopyClick}>Копировать JS</button>
+      <div className={classes.buttonsWrapper}>
+        <div className={cn(classes.buttonWrapper, classes.css)}>
+          <button className={classes.button} onClick={handleCssTextCopyClick}>
+            Копировать
+          </button>
+        </div>
+        <div className={cn(classes.buttonWrapper, classes.js)}>
+          <button className={classes.button} onClick={handleJsTextCopyClick}>
+            Копировать
+          </button>
+        </div>
       </div>
     </div>
   );
