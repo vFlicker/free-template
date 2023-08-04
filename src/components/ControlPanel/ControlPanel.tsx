@@ -1,3 +1,4 @@
+import { createJsFileText, cssFile } from '~/domain';
 import { useAppDispatch, useAppSelector } from '~/shared/hooks';
 import { formDataSlice } from '~/store/formData';
 
@@ -13,6 +14,30 @@ export function ControlPanel(): JSX.Element {
   const hasButton = useAppSelector(formDataSlice.selectHasButton);
   const hasText = useAppSelector(formDataSlice.selectHasText);
   const hasIcon = useAppSelector(formDataSlice.selectHasIcon);
+  const formData = useAppSelector((state) => state.FORM_DATA);
+
+  const handleCssTextCopyClick = async () => {
+    const type: 'rectangular' | 'narrow' | 'square' | 'wide' = 'wide';
+    const cssFileText = cssFile[type];
+
+    try {
+      await navigator.clipboard.writeText(cssFileText);
+      alert('Текст успішно скопійовано!');
+    } catch (error) {
+      alert('Error');
+    }
+  };
+
+  const handleJsTextCopyClick = async () => {
+    const jsFileText = createJsFileText(formData);
+
+    try {
+      await navigator.clipboard.writeText(jsFileText);
+      alert('Текст успішно скопійовано!');
+    } catch (error) {
+      alert('Error');
+    }
+  };
 
   return (
     <div>
@@ -72,7 +97,10 @@ export function ControlPanel(): JSX.Element {
         </Checkbox>
       </div>
 
-      <div className={classes.buttonWrapper}></div>
+      <div className={classes.buttonWrapper}>
+        <button onClick={handleCssTextCopyClick}>Копировать CSS</button>
+        <button onClick={handleJsTextCopyClick}>Копировать JS</button>
+      </div>
     </div>
   );
 }
