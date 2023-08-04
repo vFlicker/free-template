@@ -12,14 +12,17 @@ import classes from './ControlPanel.module.css';
 export function ControlPanel(): JSX.Element {
   const dispatch = useAppDispatch();
 
-  const cartType = useAppSelector(formDataSlice.selectCardType);
-  const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
-  const hasImage = useAppSelector(formDataSlice.selectHasImage);
-  const hasDescription = useAppSelector(formDataSlice.selectHasDescription);
-  const hasButton = useAppSelector(formDataSlice.selectHasButton);
-  const hasText = useAppSelector(formDataSlice.selectHasText);
-  const hasIcon = useAppSelector(formDataSlice.selectHasIcon);
   const formData = useAppSelector((state) => state.FORM_DATA);
+
+  const {
+    cardType,
+    hasBackground,
+    hasButton,
+    hasDescription,
+    hasIcon,
+    hasImage,
+    hasText,
+  } = formData;
 
   const handlePropertyChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const cardProperty = evt.target.value as CardProperty;
@@ -27,8 +30,7 @@ export function ControlPanel(): JSX.Element {
   };
 
   const handleCssTextCopyClick = async () => {
-    const type: 'rectangular' | 'narrow' | 'square' | 'wide' = 'wide';
-    const cssFileText = cssFile[type];
+    const cssFileText = cssFile[cardType];
 
     try {
       await navigator.clipboard.writeText(cssFileText);
@@ -54,7 +56,7 @@ export function ControlPanel(): JSX.Element {
       <h3 className={classes.title}>Настройки карточки</h3>
 
       <div className={classes.baseWrapper}>
-        {cartType !== 'narrow' && (
+        {cardType !== 'narrow' && (
           <Checkbox
             value="hasBackground"
             checked={hasBackground}
@@ -64,7 +66,7 @@ export function ControlPanel(): JSX.Element {
           </Checkbox>
         )}
 
-        {cartType !== 'square' && (
+        {cardType !== 'square' && (
           <Checkbox
             value="hasImage"
             checked={hasImage}

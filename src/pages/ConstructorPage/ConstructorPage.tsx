@@ -11,7 +11,7 @@ import { title } from './config';
 import classes from './ConstructorPage.module.css';
 
 export function ConstructorPage(): JSX.Element {
-  const cardType = useAppSelector(formDataSlice.selectCardType);
+  const { cardType } = useAppSelector(formDataSlice.selectFromData);
   const cardTypeClass = classes[cardType];
   const cardListClasses = cn(classes.list, cardTypeClass);
 

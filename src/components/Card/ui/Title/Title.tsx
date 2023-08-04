@@ -13,9 +13,10 @@ export function Title({
   children,
   ...props
 }: TitleProps): JSX.Element {
-  const cardType = useAppSelector(formDataSlice.selectCardType);
-  const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
-  const hasText = useAppSelector(formDataSlice.selectHasText);
+  const { cardType, hasBackground, hasText } = useAppSelector(
+    formDataSlice.selectFromData,
+  );
+
   const isSquareType = cardType === 'square';
   const isButtonSmall = hasText === false;
 

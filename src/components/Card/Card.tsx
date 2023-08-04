@@ -7,8 +7,9 @@ import classes from './Card.module.css';
 import { Button, Description, Image, Title } from './ui';
 
 export function Card(): JSX.Element {
-  const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
-  const cardType = useAppSelector(formDataSlice.selectCardType);
+  const { cardType, hasBackground } = useAppSelector(
+    formDataSlice.selectFromData,
+  );
 
   const cardTypeClass = classes[cardType];
   const isNarrowType = cardType === 'narrow';

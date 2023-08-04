@@ -13,11 +13,8 @@ export function Button({
   children,
   ...props
 }: ButtonProps): JSX.Element | null {
-  const cardType = useAppSelector(formDataSlice.selectCardType);
-  const hasIcon = useAppSelector(formDataSlice.selectHasIcon);
-  const hasText = useAppSelector(formDataSlice.selectHasText);
-  const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
-  const hasButton = useAppSelector(formDataSlice.selectHasButton);
+  const { cardType, hasBackground, hasButton, hasIcon, hasText } =
+    useAppSelector(formDataSlice.selectFromData);
 
   if (!hasButton) {
     return null;

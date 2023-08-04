@@ -13,9 +13,9 @@ export function Description({
   children,
   ...props
 }: DescriptionProps): JSX.Element | null {
-  const cardType = useAppSelector(formDataSlice.selectCardType);
-  const hasDescription = useAppSelector(formDataSlice.selectHasDescription);
-  const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
+  const { cardType, hasDescription, hasBackground } = useAppSelector(
+    formDataSlice.selectFromData,
+  );
 
   if (!hasDescription) {
     return null;

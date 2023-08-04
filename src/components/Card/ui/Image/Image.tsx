@@ -10,9 +10,9 @@ import classes from './Image.module.css';
 type ImageProps = ComponentPropsWithoutRef<'img'>;
 
 export function Image({ className }: ImageProps): JSX.Element | null {
-  const cardType = useAppSelector(formDataSlice.selectCardType);
-  const hasImage = useAppSelector(formDataSlice.selectHasImage);
-  const hasBackground = useAppSelector(formDataSlice.selectHasBackground);
+  const { cardType, hasBackground, hasImage } = useAppSelector(
+    formDataSlice.selectFromData,
+  );
 
   if (hasBackground || !hasImage || cardType === 'square') {
     return null;
