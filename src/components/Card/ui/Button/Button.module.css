@@ -48,6 +48,7 @@
 
 .button.narrow {
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .button.narrow.large {
