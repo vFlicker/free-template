@@ -1,13 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { CardProperty, CardType, FormData, State } from '~/shared/types';
+import {
+  CardType,
+  CheckboxProperty,
+  FormData,
+  RadioProperty,
+  State,
+} from '~/shared/types';
 
 const initialState: FormData = {
   cardType: 'rectangular',
   hasDescription: true,
   hasButton: true,
-  hasText: true,
+  hasButtonText: true,
+  buttonSize: 'small',
+  buttonPosition: 'left',
   hasIcon: true,
+  iconPosition: 'left',
   hasBackground: false,
   hasImage: true,
 };
@@ -27,11 +36,14 @@ const formDataSlice = createSlice({
         state.hasBackground = false;
       }
 
-      if (state.hasText === false) {
+      if (state.hasButtonText === false) {
         state.hasIcon = true;
       }
     },
-    changeCardProperty: (state, { payload }: PayloadAction<CardProperty>) => {
+    changeCheckboxProperty: (
+      state,
+      { payload }: PayloadAction<CheckboxProperty>,
+    ) => {
       state[payload] = !state[payload];
 
       if (state.hasBackground === true || state.cardType === 'square') {
@@ -42,14 +54,18 @@ const formDataSlice = createSlice({
         state.hasBackground = false;
       }
 
-      if (state.hasText === false) {
+      if (state.hasButtonText === false) {
         state.hasIcon = true;
       }
+    },
+    changeRadioProperty: (state, { payload }: PayloadAction<RadioProperty>) => {
+      return { ...state, ...payload };
     },
   },
 });
 
-export const { changeCardType, changeCardProperty } = formDataSlice.actions;
+export const { changeCardType, changeCheckboxProperty, changeRadioProperty } =
+  formDataSlice.actions;
 
 export const selectFromData = (state: State): FormData => {
   return state.FORM_DATA;

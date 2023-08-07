@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.radio {
+  position: relative;
+
+  display: block;
+  width: 24px;
+  height: 24px;
+
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.radios {
+  display: flex;
+  gap: 2px;
+
+  margin-right: 24px;
+}
+
+.text {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.box path {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  stroke: #ACACAC;
+}
+
+.input:checked + .box path {
+  stroke: #12D28D;
+}

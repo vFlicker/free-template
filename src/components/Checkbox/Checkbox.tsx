@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef } from 'react';
 
-import { CardProperty } from '~/shared/types';
+import { CheckboxProperty } from '~/shared/types';
 
 import classes from './Checkbox.module.css';
 
 type CheckboxProps = ComponentPropsWithoutRef<'input'> & {
-  value: CardProperty;
+  value: CheckboxProperty;
 };
 
 export function Checkbox({ children, ...props }: CheckboxProps) {

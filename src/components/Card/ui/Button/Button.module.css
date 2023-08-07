@@ -7,7 +7,6 @@
   align-items: center;
   gap: 10px;
 
-  width: 48px;
   padding: 14px 0;
   border-radius: 8px;
 
@@ -21,7 +20,8 @@
   background-color: #6166ED;
 }
 
-.button.icon::after {
+.button.icon.iconLeft::before,
+.button.icon.iconRight::after {
   content: '';
 
   display: block;
@@ -33,9 +33,29 @@
   background-position: left center;
 }
 
-.button.large {
+.button.buttonLeft {
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.button.buttonRight {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.button.small {
+  width: 48px;
+  height: 48px;
+}
+
+.button.default {
   width: 220px;
   height: 48px;
+}
+
+.button.large {
+  width: 220px;
+  height: 68px;
 }
 
 .button.rectangular {
@@ -49,10 +69,6 @@
 .button.narrow {
   flex-shrink: 0;
   margin-left: auto;
-}
-
-.button.narrow.large {
-  height: 68px;
 }
 
 .button.wide {

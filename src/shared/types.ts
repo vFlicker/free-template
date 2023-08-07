@@ -6,13 +6,25 @@ export type FormData = {
   cardType: CardType;
   hasDescription: boolean;
   hasButton: boolean;
-  hasText: boolean;
+  hasButtonText: boolean;
   hasIcon: boolean;
   hasBackground: boolean;
   hasImage: boolean;
-};
+} & RadioProperty;
 
-export type CardProperty = Exclude<keyof FormData, 'cardType'>;
+export type CheckboxProperty =
+  | 'hasDescription'
+  | 'hasButton'
+  | 'hasButtonText'
+  | 'hasIcon'
+  | 'hasBackground'
+  | 'hasImage';
+
+export type RadioProperty = {
+  buttonSize: 'big' | 'small';
+  buttonPosition: 'left' | 'right';
+  iconPosition: 'left' | 'right';
+};
 
 export type State = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

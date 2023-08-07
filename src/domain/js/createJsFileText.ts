@@ -14,7 +14,7 @@ const getClasses = ({
   hasDescription,
   hasIcon,
   hasImage,
-  hasText,
+  hasButtonText,
 }: FormData): string => {
   const classes = [];
 
@@ -34,15 +34,15 @@ const getClasses = ({
     classes.push('add-image');
   }
 
-  if (hasButton === true && hasText === true && hasIcon === false) {
+  if (hasButton === true && hasButtonText === true && hasIcon === false) {
     classes.push('button-large');
   }
 
-  if (hasButton === true && hasText === true && hasIcon === true) {
+  if (hasButton === true && hasButtonText === true && hasIcon === true) {
     classes.push('button-large-right-icon');
   }
 
-  if (hasButton === true && hasText === false) {
+  if (hasButton === true && hasButtonText === false) {
     classes.push('button-small');
   }
 

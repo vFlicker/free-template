@@ -1,0 +1,58 @@
+.wrapper {
+  display: flex;
+  max-width: 170px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.radio{
+  position: relative;
+
+  display: block;
+  width: 160px;
+  height: 39px;
+
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.box {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-color: #E3E3E3;
+}
+
+.input:checked + .box {
+  background-color: #1CB47D;
+}
+
+.input:checked ~ .text {
+  color: #ffffff;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #909090;
+  font-size: 12px;
+
+  z-index: 1;
+}

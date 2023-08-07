@@ -1,0 +1,61 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.buttonWrapper {
+  display: flex;
+
+  width: 304px;
+  height: 97px;
+  padding: 8px;
+  border-radius: 8px;
+
+  background-color: #F5F5F5;
+  background-size: cover;
+}
+
+.buttonWrapper.css {
+  background-image: url(../../../../shared/images/css-background.png);
+}
+
+.buttonWrapper.js {
+  background-image: url(../../../../shared/images/js-background.png);
+}
+
+.buttonWrapper::before {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.32px;
+}
+
+.buttonWrapper.css::before {
+  content: 'css';
+  color: #12D28D;
+}
+
+.buttonWrapper.js::before {
+  content: 'js';
+  color: #404040;
+}
+
+.buttonWrapper.css .button {
+  background-color: #1CB47D;
+}
+
+.buttonWrapper.js .button {
+  background-color: #404040;
+}
+
+.button {
+  margin-top: auto;
+  margin-left: auto;
+  padding: 10px;
+  border-radius: 8px;
+
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+}

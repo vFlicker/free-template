@@ -13,8 +13,16 @@ export function Button({
   children,
   ...props
 }: ButtonProps): JSX.Element | null {
-  const { cardType, hasBackground, hasButton, hasIcon, hasText } =
-    useAppSelector(formDataSlice.selectFromData);
+  const {
+    cardType,
+    hasBackground,
+    hasButton,
+    hasButtonText,
+    buttonSize,
+    buttonPosition,
+    hasIcon,
+    iconPosition,
+  } = useAppSelector(formDataSlice.selectFromData);
 
   if (!hasButton) {
     return null;
@@ -23,14 +31,20 @@ export function Button({
   const cardTypeClass = classes[cardType];
 
   const classNames = cn(classes.button, cardTypeClass, className, {
-    [classes.large]: hasText,
-    [classes.icon]: hasIcon || !hasText,
+    [classes.buttonLeft]: buttonPosition === 'left',
+    [classes.buttonRight]: buttonPosition === 'right',
+    [classes.small]: !hasButtonText,
+    [classes.default]: hasButtonText && buttonSize === 'small',
+    [classes.large]: hasButtonText && buttonSize === 'big',
+    [classes.icon]: hasIcon || !hasButtonText,
     [classes.background]: hasBackground,
+    [classes.iconLeft]: hasIcon && iconPosition === 'left',
+    [classes.iconRight]: hasIcon && iconPosition === 'right',
   });
 
   return (
     <button className={classNames} {...props}>
-      {hasText && children}
+      {hasButtonText && children}
     </button>
   );
 }
