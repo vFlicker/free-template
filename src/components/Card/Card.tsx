@@ -7,29 +7,30 @@ import classes from './Card.module.css';
 import { Button, Description, Image, Title } from './ui';
 
 export function Card(): JSX.Element {
-  const { cardType, hasBackground } = useAppSelector(
+  const { cardType, hasBackground, buttonPosition } = useAppSelector(
     formDataSlice.selectFromData,
   );
 
   const cardTypeClass = classes[cardType];
-  const isNarrowType = cardType === 'narrow';
 
   const classNames = cn(classes.card, cardTypeClass, {
-    [classes.background]: !isNarrowType && hasBackground,
+    [classes.background]: cardType !== 'narrow' && hasBackground,
+    [classes.buttonLeft]: buttonPosition === 'left',
+    [classes.buttonRight]: buttonPosition === 'right',
   });
 
   return (
     <article className={classNames}>
-      <Image />
+      <Image className={classes.image} />
 
       <div className={classes.wrapper}>
-        <Title>Заголовок модуля в пару строк</Title>
+        <Title className={classes.title}>Заголовок модуля в пару строк</Title>
 
-        <Description>
+        <Description className={classes.description}>
           Corem ipsum dolor sit amet, consectetur adipiscing elit.
         </Description>
 
-        <Button>Перейти</Button>
+        <Button className={classes.button}>Перейти</Button>
       </div>
     </article>
   );

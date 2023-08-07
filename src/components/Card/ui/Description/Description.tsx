@@ -13,19 +13,13 @@ export function Description({
   children,
   ...props
 }: DescriptionProps): JSX.Element | null {
-  const { cardType, hasDescription, hasBackground } = useAppSelector(
-    formDataSlice.selectFromData,
-  );
+  const { hasDescription } = useAppSelector(formDataSlice.selectFromData);
 
   if (!hasDescription) {
     return null;
   }
 
-  const cardTypeClass = classes[cardType];
-
-  const classNames = cn(classes.description, cardTypeClass, className, {
-    [classes.background]: hasBackground,
-  });
+  const classNames = cn(classes.description, className);
 
   return (
     <p className={classNames} {...props}>

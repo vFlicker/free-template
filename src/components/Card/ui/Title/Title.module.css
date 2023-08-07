@@ -7,31 +7,3 @@
 
   z-index: 1;
 }
-
-.title.background {
-  color: #ffffff;
-}
-
-.title.rectangular {
-  margin-bottom: 8px;
-  font-size: 22px;
-}
-
-.title.square {
-  font-size: 22px;
-}
-
-.title.narrow {
-  max-width: 200px;
-
-  font-size: 20px;
-}
-
-.title.wide {
-  width: 400px;
-  font-size: 24px;
-}
-
-.marginTopAuto {
-  margin-top: auto;
-}

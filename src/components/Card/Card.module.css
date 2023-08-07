@@ -9,10 +9,6 @@
   overflow: hidden;
 }
 
-.card:last-child {
-  margin-bottom: 0;
-}
-
 .card.background {
   background-image: url(../../shared/images/card-picture.jpg);
   background-size: cover;
@@ -31,21 +27,16 @@
   background-color: rgba(0, 0, 0, 0.568);
 }
 
-.card.background .title,
 .card.background .description {
+  color: #DEDEDE;
+}
+
+.card.background .title {
   color: #ffffff;
 }
 
-.title {
-  position: relative;
-  z-index: 1;
+/* RECTANGULAR */
 
-  color: #000000;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-/* Rectangular */
 .card.rectangular {
   width: 268px;
   flex-direction: column;
@@ -55,20 +46,71 @@
   height: 310px;
 }
 
-.card.rectangular.background .button {
-  margin-top: auto;
-}
-
-
-/* Rectangular */
 .card.rectangular .wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
+.card.rectangular .image {
+  width: 220px;
+  height: 140px;
 
-/* Narrow */
+  margin-bottom: 16px;
+  border-radius: 8px;
+
+  object-fit: cover;
+}
+
+.card.rectangular .title {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.card.rectangular .description {
+  margin-bottom: 16px;
+}
+
+.card.rectangular .button {
+  margin-top: auto;
+}
+
+/* SQUARE */
+
+.card.square {
+  width: 268px;
+  height: 268px;
+}
+
+.card.square .wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.card.square .title {
+  font-size: 22px;
+}
+
+.card.square.background .title {
+  margin-top: auto;
+}
+
+.card.square .description {
+  margin-top: 8px;
+}
+
+.card.square .button {
+  order: 0;
+  margin-top: auto;
+}
+
+.card.square.background .button {
+  margin: 0 0 0 auto;
+  order: -1;
+}
+
+/* NARROW */
+
 .card.narrow {
   width: 100%;
   max-width: 836px;
@@ -80,8 +122,31 @@
   width: 100%;
 }
 
+.card.narrow .image {
+  width: 100px;
+  height: 100px;
 
-/* Wide */
+  margin-right: 24px;
+  border-radius: 16px;
+}
+
+.card.narrow .title {
+  max-width: 200px;
+
+  font-size: 20px;
+}
+
+.card.narrow .description {
+  margin: 0 50px;
+}
+
+.card.narrow .button {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* WIDE */
+
 .card.wide {
   justify-content: space-between;
   width: 100%;
@@ -103,18 +168,36 @@
 .card.wide .wrapper {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 
   padding: 24px;
 }
 
+.card.wide .image {
+  width: 280px;
+  height: 280px;
 
-/* Square */
-.card.square {
-  width: 268px;
-  height: 268px;
+  order: 1;
 }
 
-.card.square .wrapper {
-  display: flex;
-  flex-direction: column;
+.card.wide .title {
+  width: 400px;
+  font-size: 24px;
+}
+
+.card.wide .description {
+  width: 220px;
+  margin-top: 16px;
+}
+
+.card.wide .button {
+  margin-top: auto;
+}
+
+.card.wide.buttonLeft .button {
+  margin-right: auto;
+}
+
+.card.wide.buttonRight .button {
+  margin-left: auto;
 }

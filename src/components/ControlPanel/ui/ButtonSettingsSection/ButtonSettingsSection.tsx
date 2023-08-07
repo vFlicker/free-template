@@ -9,19 +9,25 @@ import { formDataSlice } from '~/store/formData';
 
 import classes from './ButtonSettingsSection.module.css';
 
-export function ButtonSettingsSection(): JSX.Element {
+export function ButtonSettingsSection(): JSX.Element | null {
   const dispatch = useAppDispatch();
 
   const formData = useAppSelector((state) => state.FORM_DATA);
 
   const {
     cardType,
+    hasButton,
     hasIcon,
     hasButtonText,
     buttonSize,
     iconPosition,
     buttonPosition,
+    hasBackground,
   } = formData;
+
+  if (hasButton === false) {
+    return null;
+  }
 
   const handleCheckboxChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const cardProperty = evt.target.value as CheckboxProperty;
@@ -40,15 +46,18 @@ export function ButtonSettingsSection(): JSX.Element {
     <div className={classes.wrapper}>
       <div className={classes.row}>
         <h3 className={classes.title}>Вид кнопки</h3>
-        <Toggler
-          onChange={handleRadioChange}
-          name="buttonSize"
-          value={buttonSize}
-          leftValue="big"
-          rightValue="small"
-          leftText="Большая"
-          rightText="Маленькая"
-        />
+
+        {hasButtonText && (
+          <Toggler
+            onChange={handleRadioChange}
+            name="buttonSize"
+            value={buttonSize}
+            leftValue="big"
+            rightValue="small"
+            leftText="Большая"
+            rightText="Маленькая"
+          />
+        )}
       </div>
 
       <div className={classes.row}>
@@ -83,7 +92,7 @@ export function ButtonSettingsSection(): JSX.Element {
         </Checkbox>
       </div>
 
-      {cardType === 'wide' && (
+      {cardType === 'wide' && hasBackground && (
         <PositionToggler
           name="buttonPosition"
           value={buttonPosition}

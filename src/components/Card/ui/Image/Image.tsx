@@ -10,16 +10,15 @@ import classes from './Image.module.css';
 type ImageProps = ComponentPropsWithoutRef<'img'>;
 
 export function Image({ className }: ImageProps): JSX.Element | null {
-  const { cardType, hasBackground, hasImage } = useAppSelector(
+  const { hasBackground, hasImage } = useAppSelector(
     formDataSlice.selectFromData,
   );
 
-  if (hasBackground || !hasImage || cardType === 'square') {
+  if (hasBackground || !hasImage) {
     return null;
   }
 
-  const cardTypeClass = classes[cardType];
-  const classNames = cn(classes.image, cardTypeClass, className);
+  const classNames = cn(classes.image, className);
 
   return (
     <img

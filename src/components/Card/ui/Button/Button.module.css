@@ -20,29 +20,6 @@
   background-color: #6166ED;
 }
 
-.button.icon.iconLeft::before,
-.button.icon.iconRight::after {
-  content: '';
-
-  display: block;
-  width: 16px;
-  height: 16px;
-
-  background-image: url(../../../../shared/images/next.svg);
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-
-.button.buttonLeft {
-  flex-shrink: 0;
-  margin-right: auto;
-}
-
-.button.buttonRight {
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
 .button.small {
   width: 48px;
   height: 48px;
@@ -58,29 +35,15 @@
   height: 68px;
 }
 
-.button.rectangular {
-  margin-top: auto;
-}
+.button.icon.iconLeft::before,
+.button.icon.iconRight::after {
+  content: '';
 
-.button.square {
-  margin-top: auto
-}
+  display: block;
+  width: 16px;
+  height: 16px;
 
-.button.narrow {
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
-.button.wide {
-  margin-top: auto;
-}
-
-.button.square.large {
-  order: 0;
-  margin-top: auto;
-}
-
-.button.square {
-  order: -1;
-  margin: 0 0 0 auto;
+  background-image: url(../../../../shared/images/next.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
 }
