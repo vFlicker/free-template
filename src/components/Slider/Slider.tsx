@@ -3,7 +3,7 @@ import 'swiper/css/pagination';
 import './styles.css';
 
 import { useState } from 'react';
-import { Pagination } from 'swiper';
+import { Keyboard, Pagination } from 'swiper';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 
 import { ScreenExample } from '../ScreenExample';
@@ -31,12 +31,15 @@ export function Slider(): JSX.Element {
   return (
     <>
       <Swiper
+        modules={[Pagination, Keyboard]}
         slidesPerView={1}
         centeredSlides={true}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        keyboard={{
+          enabled: true,
+        }}
         breakpoints={{
           1620: {
             slidesPerView: 2,
