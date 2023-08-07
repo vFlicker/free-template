@@ -10,39 +10,85 @@ const cardId = {
 const getClasses = ({
   cardType,
   hasBackground,
-  hasButton,
   hasDescription,
-  hasIcon,
   hasImage,
+  hasButton,
   hasButtonText,
+  buttonSize,
+  buttonPosition,
+  hasIcon,
+  iconPosition,
 }: FormData): string => {
   const classes = [];
 
-  if (hasButton === false) {
-    classes.push('no-button');
-  }
-
-  if (hasDescription === false) {
-    classes.push('no-description');
+  /* Image & Background */
+  if (cardType !== 'square' && hasBackground === false && hasImage === true) {
+    classes.push('add-image');
   }
 
   if (hasBackground === true) {
     classes.push('background-image');
   }
 
-  if (cardType !== 'square' && hasImage === true && hasBackground === false) {
-    classes.push('add-image');
+  /* Description */
+  if (hasDescription === false) {
+    classes.push('no-description');
   }
 
-  if (hasButton === true && hasButtonText === true && hasIcon === false) {
+  /* Button */
+  if (hasButton === false) {
+    classes.push('no-button');
+  }
+
+  if (cardType === 'wide' && buttonPosition === 'right') {
+    classes.push('button-right');
+  }
+
+  if (hasButtonText === true && buttonSize === 'big' && hasIcon === false) {
     classes.push('button-large');
   }
 
-  if (hasButton === true && hasButtonText === true && hasIcon === true) {
+  if (
+    hasButtonText === true &&
+    buttonSize === 'big' &&
+    hasIcon === true &&
+    iconPosition === 'left'
+  ) {
+    classes.push('button-large-left-icon');
+  }
+
+  if (
+    hasButtonText === true &&
+    buttonSize === 'big' &&
+    hasIcon === true &&
+    iconPosition === 'right'
+  ) {
     classes.push('button-large-right-icon');
   }
 
-  if (hasButton === true && hasButtonText === false) {
+  if (hasButtonText === true && buttonSize === 'small' && hasIcon === false) {
+    classes.push('button-standart');
+  }
+
+  if (
+    hasButtonText === true &&
+    buttonSize === 'small' &&
+    hasIcon === true &&
+    iconPosition === 'left'
+  ) {
+    classes.push('button-standart-left-icon');
+  }
+
+  if (
+    hasButtonText === true &&
+    buttonSize === 'small' &&
+    hasIcon === true &&
+    iconPosition === 'right'
+  ) {
+    classes.push('button-standart-right-icon');
+  }
+
+  if (hasButtonText === false) {
     classes.push('button-small');
   }
 
