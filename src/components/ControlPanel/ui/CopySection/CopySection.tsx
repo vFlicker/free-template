@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { toast } from 'react-toastify';
 
-import { createJsFileText, cssFile } from '~/domain';
+import { cssFile, getJsFileString } from '~/domain';
 import { useAppSelector } from '~/shared/hooks';
 
 import { toastErrorOptions, toastSuccessOptions } from './config';
@@ -10,9 +10,22 @@ import classes from './CopySection.module.css';
 export function CopySection(): JSX.Element {
   const formData = useAppSelector((state) => state.FORM_DATA);
 
-  const handleCopyClick = (textFile: string) => async () => {
+  const handleCssCopyClick = (textFileSrc: string) => async () => {
+    const response = await fetch(textFileSrc);
+    const text = await response.text();
+
     try {
-      await navigator.clipboard.writeText(textFile);
+      await navigator.clipboard.writeText(text);
+      toast.success('Скопировано в буфер обмена', toastSuccessOptions);
+    } catch (error) {
+      toast.error('Ошибка', toastErrorOptions);
+      console.log('Ошибка', error);
+    }
+  };
+
+  const handleJsCopyClick = (data: string) => async () => {
+    try {
+      await navigator.clipboard.writeText(data);
       toast.success('Скопировано в буфер обмена', toastSuccessOptions);
     } catch (error) {
       toast.error('Ошибка', toastErrorOptions);
@@ -25,7 +38,7 @@ export function CopySection(): JSX.Element {
       <div className={cn(classes.buttonWrapper, classes.css)}>
         <button
           className={classes.button}
-          onClick={handleCopyClick(cssFile[formData.cardType])}
+          onClick={handleCssCopyClick(cssFile[formData.cardType])}
         >
           Копировать
         </button>
@@ -33,7 +46,7 @@ export function CopySection(): JSX.Element {
       <div className={cn(classes.buttonWrapper, classes.js)}>
         <button
           className={classes.button}
-          onClick={handleCopyClick(createJsFileText(formData))}
+          onClick={handleJsCopyClick(getJsFileString(formData))}
         >
           Копировать
         </button>

@@ -1,7 +1,7 @@
-import wide from './heavy-cards.css?inline';
-import narrow from './narrow-cards.css?inline';
-import square from './square-cards.css?inline';
-import rectangular from './vertical-cards.css?inline';
+import wide from './heavy-cards.txt';
+import narrow from './narrow-cards.txt';
+import square from './square-cards.txt';
+import rectangular from './vertical-cards.txt';
 
 export const cssFile = {
   wide,

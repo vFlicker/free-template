@@ -95,7 +95,7 @@ const getClasses = ({
   return classes.join(' ');
 };
 
-export const createJsFileText = (formData: FormData): string => {
+export const getJsFileString = (formData: FormData): string => {
   const templateId = cardId[formData.cardType];
   const classes = getClasses(formData);
 
