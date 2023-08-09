@@ -1,8 +1,17 @@
-#narrow-cards {
+import { FormData } from '~/shared/types';
+
+import { getStyles } from './utils';
+
+export const getSquareCardCssString = (formData: FormData): string => {
+  const { cardBg, descriptionColor, titleColor } = getStyles(formData);
+
+  return `
+#square-cards {
   --font-family: sans-serif;
   --color-list-bg: #ccc;
+  /* --card-bg: url(https://images.unsplash.com/photo-1688413708929-8b2d281803df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80); */
   --card-bg: #ffffff;
-  --color-title: #000000;
+  --color-title: #323232;
   --color-description: #777777;
   --color-button-bg: rgba(131, 136, 255, 1);
   --color-button-text: #ffffff;
@@ -14,118 +23,91 @@
   --button-radius: 0px;
   --image-radius: 0px;
 
-  --small-button-icon: url();
+  --small-button-icon: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --small-button-icon-disable: url();
 
-  --url-button-icon-left: url();
+  --url-button-icon-left: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --url-button-icon-left-disable: url();
-  --url-button-icon-right: url();
+  --url-button-icon-right: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --url-button-icon-right-disable: url();
 
   --url-all-trainings-image: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/41/h/dd3c72505a70573840f84a7305a8b2f0.png);
 }
-#narrow-cards * {
+#square-cards * {
   font-family: var(--font-family);
 }
-#narrow-cards .stream-table {
+#square-cards .stream-table {
   width: 100%;
   margin-bottom: 0px;
   margin-left: 0px;
   background: var(--color-list-bg);
 }
-#narrow-cards .stream-table tbody {
+#square-cards .stream-table tbody {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
-#narrow-cards .stream-table tr {
+@media (max-width: 1200px) {
+  #square-cards .stream-table tbody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  #square-cards .stream-table tbody {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+#square-cards .stream-table tr {
   width: 100%;
   display: block;
 }
-#narrow-cards .stream-table tr td {
+#square-cards .stream-table tr td {
   padding: 0px;
   width: 100%;
   display: block;
   height: 100%;
-  min-height: 148px;
+  min-height: 268px;
   opacity: 1;
 }
-#narrow-cards .stream-table tr td:hover {
+#square-cards .stream-table tr td:hover {
   background: transparent;
 }
-#narrow-cards .stream-table tr td a {
+#square-cards .stream-table tr td a {
   height: 100%;
-  min-height: 148px;
+  min-height: 268px;
   border-radius: var(--card-radius);
-  background: var(--card-bg);
+  background: var(--card-bg) no-repeat center / cover;
   padding: 24px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
 }
-#narrow-cards .stream-title {
+/* different bg, need to change training's id */
+#square-cards .stream-table tr[data-training-id='{ID}'] td a {
+  background-image: url({LINK});
+}
+#square-cards .stream-title {
   color: var(--color-title);
-  font-size: 20px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-right: 32px;
+  margin-bottom: 16px;
 }
-#narrow-cards .stream-table tr td a > div {
+#square-cards .stream-table tr td a > div {
   color: var(--color-description);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-right: 24px;
-}
-
-@media (max-width: 1260px) {
-  #narrow-cards .stream-table tr td a {
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  #narrow-cards .stream-table tbody {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #narrow-cards .stream-table tr td {
-    height: 100%;
-  }
-  #narrow-cards button {
-    margin-top: auto;
-  }
-}
-@media (max-width: 660px) {
-  #narrow-cards .stream-table tbody {
-    grid-template-columns: 1fr;
-  }
+  margin-bottom: 24px;
 }
 
 /* hide description */
 .no-description td a > div {
   display: none;
-}
-
-/* add image */
-.add-image a::before {
-  content: '';
-  width: 100px;
-  height: 100px;
-  border-radius: var(--image-radius);
-  background: no-repeat center / cover;
-  flex-shrink: 0;
-  margin-right: 24px;
-}
-/* one image for all trainings */
-.add-image a::before {
-  background-image: var(--url-all-trainings-image);
-}
-
-/* different images, need to change training's id */
-.add-image[data-training-id='777477771'] a::before {
-  background-image: url(https://images.unsplash.com/photo-1646343588889-07753bb55abf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80);
 }
 
 /* hide button */
@@ -134,6 +116,17 @@
 }
 
 /* buttons */
+
+/* button top */
+#square-cards .button-top button {
+  order: -1;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+/* button right */
+#square-cards .button-right button {
+  align-self: flex-end;
+}
 /* button large */
 .button-large button {
   border-radius: var(--button-radius);
@@ -142,8 +135,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -170,8 +164,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -208,8 +203,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -246,8 +242,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -295,8 +292,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -323,8 +321,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -361,8 +360,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -399,8 +399,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 220px;
-  margin-left: auto;
+  max-width: 220px;
+  width: 100%;
+  margin-top: auto;
   color: var(--color-button-text);
   font-size: 16px;
   font-style: normal;
@@ -449,7 +450,7 @@
   gap: 10px;
   width: 48px;
   height: 48px;
-  margin-left: auto;
+  margin-top: auto;
   font-size: 0px;
   cursor: pointer;
   border: none;
@@ -461,4 +462,5 @@
 .noaccess-mode-show.button-small button {
   background: var(--color-button-disable-bg) var(--small-button-icon-disable)
     no-repeat center;
-}
+}`;
+};

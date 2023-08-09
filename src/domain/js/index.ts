@@ -1,1 +1,1 @@
-export * from './createJsFileText';
+export * from './getJsFileString';

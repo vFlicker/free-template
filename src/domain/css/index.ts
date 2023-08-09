@@ -1,11 +1,17 @@
-import wide from './heavy-cards.txt';
-import narrow from './narrow-cards.txt';
-import square from './square-cards.txt';
-import rectangular from './vertical-cards.txt';
+import { FormData } from '~/shared/types';
 
-export const cssFile = {
-  wide,
-  narrow,
-  square,
-  rectangular,
+import { getHeavyCardCssString } from './getHeavyCardCssString';
+import { getNarrowCardCssString } from './getNarrowCardCssString';
+import { getSquareCardCssString } from './getSquareCardCssString';
+import { getVerticalCardCssString } from './getVerticalCardCssString';
+
+const cssFunction = {
+  wide: getHeavyCardCssString,
+  narrow: getNarrowCardCssString,
+  square: getSquareCardCssString,
+  rectangular: getVerticalCardCssString,
+} as const;
+
+export const getCssFileString = (data: FormData): string => {
+  return cssFunction[data.cardType](data);
 };

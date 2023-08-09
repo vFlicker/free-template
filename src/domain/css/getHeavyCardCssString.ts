@@ -1,9 +1,17 @@
+import { FormData } from '~/shared/types';
+
+import { getStyles } from './utils';
+
+export const getHeavyCardCssString = (formData: FormData): string => {
+  const { cardBg, descriptionColor, titleColor } = getStyles(formData);
+
+  return `
 #heavy-cards {
   --font-family: sans-serif;
   --color-list-bg: #ccc;
-  --card-bg: #ffffff;
-  --color-title: #323232;
-  --color-description: #777777;
+  --card-bg: ${cardBg};
+  --color-title: ${titleColor};
+  --color-description: ${descriptionColor};
   --color-button-bg: rgba(131, 136, 255, 1);
   --color-button-text: #ffffff;
   --color-button-hover-bg: rgba(97, 102, 237, 1);
@@ -14,12 +22,12 @@
   --button-radius: 0px;
   --image-radius: 0px;
 
-  --small-button-icon: url();
+  --small-button-icon: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --small-button-icon-disable: url();
 
-  --url-button-icon-left: url();
+  --url-button-icon-left: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --url-button-icon-left-disable: url();
-  --url-button-icon-right: url();
+  --url-button-icon-right: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --url-button-icon-right-disable: url();
 
   --url-all-trainings-image: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/41/h/dd3c72505a70573840f84a7305a8b2f0.png);
@@ -478,4 +486,5 @@
 /* button right */
 .button-right button {
   align-self: flex-end;
-}
+}`;
+};
