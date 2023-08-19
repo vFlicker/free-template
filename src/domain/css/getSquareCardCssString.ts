@@ -8,11 +8,11 @@ export const getSquareCardCssString = (formData: FormData): string => {
   return `
 #square-cards {
   --font-family: sans-serif;
-  --color-list-bg: #ccc;
-  /* --card-bg: url(https://images.unsplash.com/photo-1688413708929-8b2d281803df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80); */
+  --color-list-bg: transparent;
+  /* --card-bg: ${cardBg} */
   --card-bg: #ffffff;
-  --color-title: #323232;
-  --color-description: #777777;
+  --color-title: ${titleColor};
+  --color-description: ${descriptionColor};
   --color-button-bg: rgba(131, 136, 255, 1);
   --color-button-text: #ffffff;
   --color-button-hover-bg: rgba(97, 102, 237, 1);
@@ -22,6 +22,9 @@ export const getSquareCardCssString = (formData: FormData): string => {
   --card-radius: 0px;
   --button-radius: 0px;
   --image-radius: 0px;
+
+  --shadow-card: 0px 0px 10px rgba(0,0,0, 0.3);
+  --shadow-card-hover: 0px 0px 15px rgba(0,0,0, 0.2);
 
   --small-button-icon: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --small-button-icon-disable: url();
@@ -83,6 +86,10 @@ export const getSquareCardCssString = (formData: FormData): string => {
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
+  box-shadow: var(--shadow-card);
+}
+#square-cards .stream-table tr td a:hover {
+  box-shadow: var(--shadow-card-hover);
 }
 /* different bg, need to change training's id */
 #square-cards .stream-table tr[data-training-id='{ID}'] td a {

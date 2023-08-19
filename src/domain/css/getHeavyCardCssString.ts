@@ -8,7 +8,7 @@ export const getHeavyCardCssString = (formData: FormData): string => {
   return `
 #heavy-cards {
   --font-family: sans-serif;
-  --color-list-bg: #ccc;
+  --color-list-bg: transparent;
   --card-bg: ${cardBg};
   --color-title: ${titleColor};
   --color-description: ${descriptionColor};
@@ -21,6 +21,9 @@ export const getHeavyCardCssString = (formData: FormData): string => {
   --card-radius: 0px;
   --button-radius: 0px;
   --image-radius: 0px;
+
+  --shadow-card: 0px 0px 10px rgba(0,0,0, 0.3);
+  --shadow-card-hover: 0px 0px 15px rgba(0,0,0, 0.2);  
 
   --small-button-icon: url(https://fs.getcourse.ru/fileservice/file/download/a/600892/sc/157/h/18ce640b30ec15abdcf214112e150e04.svg);
   --small-button-icon-disable: url();
@@ -73,6 +76,10 @@ export const getHeavyCardCssString = (formData: FormData): string => {
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
+  box-shadow: var(--shadow-card);
+}
+#heavy-cards .stream-table tr td a:hover {
+  box-shadow: var(--shadow-card-hover);
 }
 /* different bg, need to change training's id */
 /*
