@@ -18,9 +18,9 @@ export const getVerticalCardCssString = (formData: FormData): string => {
   --color-button-disable-bg: #2f2f2f;
   --color-button-disable-text: #ffffff;
 
-  --card-radius: 0px;
-  --button-radius: 0px;
-  --image-radius: 0px;
+  --card-radius: 16px;
+  --button-radius: 8px;
+  --image-radius: 8px;
 
   --shadow-card: 0px 0px 10px rgba(0,0,0, 0.3);
   --shadow-card-hover: 0px 0px 15px rgba(0,0,0, 0.2);
