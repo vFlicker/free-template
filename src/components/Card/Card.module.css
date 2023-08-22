@@ -91,10 +91,6 @@
   font-size: 22px;
 }
 
-.card.square.background .title {
-  margin-top: auto;
-}
-
 .card.square .description {
   margin-top: 8px;
 }
@@ -102,11 +98,6 @@
 .card.square .button {
   order: 0;
   margin-top: auto;
-}
-
-.card.square.background .button {
-  margin: 0 0 0 auto;
-  order: -1;
 }
 
 /* NARROW */
